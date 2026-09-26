@@ -11,11 +11,11 @@ Scope {
             screen: modelData
             anchors {
                 top: true
-                //        left: true
-                //       right: true
+                left: true
+                right: true
             }
             implicitHeight: 25
-            implicitWidth: 300
+            color: "#000000ff"
 
             ClockWidget {
                 anchors.centerIn: parent
