@@ -15,7 +15,7 @@ Scope {
                 right: true
             }
             implicitHeight: 25
-            color: "#000000ff"
+            color: "#405060ff"
 
             ClockWidget {
                 anchors.centerIn: parent
