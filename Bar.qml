@@ -21,6 +21,7 @@ Scope {
                 anchors.centerIn: parent
             }
             WorkspaceWidget {}
+            PowerWidget {}
         }
     }
 }

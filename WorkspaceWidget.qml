@@ -7,7 +7,6 @@ import QtQuick.Layouts
 GleakRectangle {
     anchors.left: parent.left
     anchors.leftMargin: 10
-    implicitWidth: child.implicitWidth + 30
 
     RowLayout{
         id: child
