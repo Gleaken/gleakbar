@@ -21,7 +21,13 @@ Scope {
                 anchors.centerIn: parent
             }
             WorkspaceWidget {}
-            PowerWidget {}
+            VolumeWidget {
+                anchors.right: power.left
+                anchors.rightMargin: 8
+            }
+            PowerWidget {
+                id: power
+            }
         }
     }
 }
