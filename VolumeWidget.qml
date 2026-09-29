@@ -42,7 +42,12 @@ GleakRectangle {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: {
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onClicked: mouse => {
+            if (mouse.button === Qt.RightButton) {
+                Quickshell.execDetached(["pwvucontrol"])
+                return
+            }
             if (audio)
                 audio.muted = !audio.muted
         }
