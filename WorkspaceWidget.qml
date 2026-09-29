@@ -17,7 +17,7 @@ GleakRectangle {
                 property var ws: Hyprland.workspaces.values.find(w => w.id ===index + 1)
                 property bool isActive: Hyprland.focusedWorkspace?.id === (index +1)
                 text: isActive ? "" : ""
-                color: isActive ? "#b48ead" : (ws ? "#8fbcbb" : "#444b6a")
+                color: isActive ? GlobalVariables.nord15 : (ws ? "#8fbcbb" : "#444b6a")
                 font { pixelSize: GlobalVariables.fontSize; bold: true }
 
                 MouseArea {
