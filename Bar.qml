@@ -21,7 +21,12 @@ Scope {
                 anchors.centerIn: parent
             }
             WorkspaceWidget {}
+            SystemTrayWidget {
+                anchors.right: volume.left
+                anchors.rightMargin: 8
+            }
             VolumeWidget {
+                id: volume
                 anchors.right: power.left
                 anchors.rightMargin: 8
             }
