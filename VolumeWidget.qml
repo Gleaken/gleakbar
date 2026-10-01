@@ -21,6 +21,8 @@ GleakRectangle {
             return ""
         return ""
     }
+    
+    implicitWidth: 80
 
     RowLayout {
         id: child

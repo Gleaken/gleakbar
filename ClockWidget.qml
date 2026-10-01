@@ -4,6 +4,7 @@ import Quickshell
 GleakRectangle {
     anchors.centerIn: parent
     anchors.margins: 2
+    implicitWidth: 160
 
     Text {
         id: child
