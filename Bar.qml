@@ -3,7 +3,6 @@ import Quickshell.Io
 import QtQuick
 
 Scope {
-
     Variants {
         model: Quickshell.screens
         PanelWindow {
@@ -14,7 +13,11 @@ Scope {
                 left: true
                 right: true
             }
-            implicitHeight: 25
+            margins{
+                top: 3
+                bottom: 0 
+            }
+            implicitHeight: 26
             color: "#000000ff"
 
             ClockWidget {
