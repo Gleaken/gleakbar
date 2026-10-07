@@ -18,7 +18,7 @@ Scope {
         anchors { top: true; right: true }
         margins { top: 10; right: 10 }
 
-        implicitWidth: 380
+        implicitWidth: 300
         implicitHeight: Math.max(1, column.implicitHeight)
         color: "transparent"
 
@@ -42,9 +42,9 @@ Scope {
                     Layout.fillWidth: true
                     Layout.preferredHeight: layout.implicitHeight + 20
                     radius: 8
-                    color: GlobalVariables.backgroundColor
+                    color: modelData.urgency === NotificationUrgency.Critical ? GlobalVariables.nord11 : GlobalVariables.backgroundColor
                     border.width: modelData.urgency === NotificationUrgency.Critical ? 4 : 2 
-                    border.color: modelData.urgency === NotificationUrgency.Critical ? GlobalVariables.nord11 : GlobalVariables.nord10
+                    border.color: modelData.urgency === NotificationUrgency.Critical ? GlobalVariables.nord15 : GlobalVariables.nord10
 
                     RowLayout {
                         id: layout
