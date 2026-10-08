@@ -14,13 +14,14 @@ Scope {
                 right: true
             }
             margins{
-                top: 3
+                top: 2
                 bottom: 0 
             }
             implicitHeight: 26
             color: "#000000ff"
 
             ClockWidget {
+                id: clock
                 anchors.centerIn: parent
             }
             WorkspaceWidget {}
@@ -35,6 +36,9 @@ Scope {
             }
             PowerWidget {
                 id: power
+            }
+            WeatherWidget {
+                anchors.left: clock.right
             }
         }
     }

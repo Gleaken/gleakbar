@@ -10,7 +10,7 @@ GleakRectangle {
         id: child
         anchors.centerIn: parent
         text: Time.time
-        color: '#b0b0b0'
+        color: GlobalVariables.fontColor
         font.pixelSize: GlobalVariables.fontSize
     }
 }
