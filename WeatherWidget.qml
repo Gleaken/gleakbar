@@ -13,6 +13,14 @@ GleakRectangle {
     property string temp: "--"
     property string weather: "-"
 
+    function getWeatherIcon(w: string): string {
+        if (w === "Rain") return ""
+        if (w === "Clouds") return "󰖐"
+        if (w === "Clear") return "󰖙"
+        if (w === "Snow") return "󰼶"
+        return w
+    }
+
     Text {
         id: child
         anchors.centerIn: parent
@@ -33,14 +41,15 @@ GleakRectangle {
             onRead: data => {
                 if (!data) return
                 var parts = data.trim().split(/\s+/)
-                child.text = parts[0] + "󰔄   " + parts[1]
+                var d = getWeatherIcon(parts[1])
+                child.text = parts[0] + "󰔄   " + d
             }
         }
         Component.onCompleted: running = true
     }
 
     Timer {
-        interval: 60000
+        interval: 6000
         running: true
         repeat: true
         onTriggered: {

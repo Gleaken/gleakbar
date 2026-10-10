@@ -1,7 +1,7 @@
 import requests
 
 
-APIKEY = ''
+APIKEY = 'fa6da36213b436ae15d73dc5f61271a5'
 HOST = 'http://api.openweathermap.org'
 LAT = '54.353716'
 LON = '18.582298'
@@ -14,7 +14,7 @@ def get_coordinates(city):
 def get_weather(lat, lon):
     response = requests.get(HOST + "/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=metric&&appid=" + APIKEY)
     j = response.json()
-    #print(j)
+    print(j)
     print("{}".format(int(round(j['main']['temp'],0))) + " " +j['weather'][0]['main'])
     #print(j['main']['temp'])
 
