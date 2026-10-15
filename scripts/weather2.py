@@ -1,7 +1,9 @@
 import requests
 
 
-APIKEY = 'fa6da36213b436ae15d73dc5f61271a5'
+import os
+
+APIKEY = os.environ.get('OPENWEATHER_APIKEY', 'YOUR_API_KEY_HERE')
 HOST = 'http://api.openweathermap.org'
 LAT = '54.353716'
 LON = '18.582298'

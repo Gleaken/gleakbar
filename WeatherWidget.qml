@@ -9,15 +9,18 @@ GleakRectangle {
 
     anchors.leftMargin: 30
     visible: true
-    implicitWidth: 100
+    implicitWidth: 80
     property string temp: "--"
     property string weather: "-"
 
     function getWeatherIcon(w: string): string {
         if (w === "Rain") return ""
         if (w === "Clouds") return "󰖐"
-        if (w === "Clear") return "󰖙"
+        if (w === "clear sky") return "󰖙"
         if (w === "Snow") return "󰼶"
+        if (w === "few clouds") return "󰖕"
+        if (w === "broken clouds") return ""
+        if (w === "overcast clouds") return "󰖐"
         return w
     }
 
@@ -40,8 +43,8 @@ GleakRectangle {
         stdout: SplitParser {
             onRead: data => {
                 if (!data) return
-                var parts = data.trim().split(/\s+/)
-                var d = getWeatherIcon(parts[1])
+                var parts = data.trim().split(/,/)
+                var d = getWeatherIcon(parts[2])
                 child.text = parts[0] + "󰔄   " + d
             }
         }
