@@ -42,16 +42,16 @@ GleakRectangle {
         }
     }
 
-    // Popup to show available sinks
-    Item {
+    // Popup to show available sinks - using a proper popup that's not constrained by the bar
+    Popup {
         id: sinkPopup
-        visible: false
-        anchors.centerIn: parent
+        width: 300
+        height: sinkList.height + 40
+        modal: true
+        dim: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
-        Rectangle {
-            id: popupBackground
-            width: 300
-            height: sinkList.height + 20
+        contentItem: Rectangle {
             color: GlobalVariables.nord0
             border.color: GlobalVariables.nord4
             radius: 8
@@ -92,7 +92,7 @@ GleakRectangle {
                                 if (Pipewire.defaultAudioSink && Pipewire.defaultAudioSink.id !== modelData.id) {
                                     Pipewire.defaultAudioSink = modelData;
                                 }
-                                sinkPopup.visible = false;
+                                sinkPopup.close();
                             }
                         }
                     }
@@ -116,12 +116,16 @@ GleakRectangle {
                             if (audio) {
                                 audio.muted = !audio.muted;
                             }
-                            sinkPopup.visible = false;
+                            sinkPopup.close();
                         }
                     }
                 }
             }
         }
+
+        // Position the popup near the volume widget
+        x: parent.x + (parent.width - width) / 2
+        y: parent.y - height - 10
     }
 
     MouseArea {
@@ -134,7 +138,7 @@ GleakRectangle {
             }
 
             // Show popup with available sinks
-            sinkPopup.visible = !sinkPopup.visible;
+            sinkPopup.open();
         }
         onWheel: wheel => {
             if (!audio)
@@ -144,15 +148,6 @@ GleakRectangle {
             if (audio.muted && delta > 0)
                 audio.muted = false
             wheel.accepted = true
-        }
-    }
-
-    // Close popup when clicking outside
-    MouseArea {
-        anchors.fill: parent
-        visible: sinkPopup.visible
-        onClicked: {
-            sinkPopup.visible = false;
         }
     }
 }
