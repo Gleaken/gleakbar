@@ -2,6 +2,7 @@ import Quickshell
 import Quickshell.Services.Pipewire
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 
 GleakRectangle {
     PwObjectTracker {
